@@ -14,10 +14,7 @@ export default function Home() {
       </Head>
 
       <>
-        <h1>Hello world</h1>
-        <Link href="/product">
-        Link of the term
-        </Link>
+        <h1>home page</h1>
       </>
     </div>
   );
