@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import About from "./about";
 // import about from "./about"
@@ -14,7 +15,9 @@ export default function Home() {
 
       <>
         <h1>Hello world</h1>
-        <About></About>
+        <Link href="/product">
+        Link of the term
+        </Link>
       </>
     </div>
   );
