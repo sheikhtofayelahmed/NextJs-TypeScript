@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import About from "./about";
+// import about from "./about"
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -11,7 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     <h1>Hello world</h1>
+      <>
+        <h1>Hello world</h1>
+        <About></About>
+      </>
     </div>
-  )
+  );
 }
