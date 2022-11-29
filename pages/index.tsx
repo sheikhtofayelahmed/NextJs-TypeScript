@@ -1,10 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 import About from "./about";
 // import about from "./about"
 export default function Home() {
+  const router=useRouter()
+  const navigate=()=>{
+    router.push("/product")
+    // router.replace("/product")
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -15,6 +21,7 @@ export default function Home() {
 
       <>
         <h1>home page</h1>
+        <button onClick={navigate}>navigate button </button>
       </>
     </div>
   );
