@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const User = ({ user }: any) => {
@@ -5,6 +6,9 @@ const User = ({ user }: any) => {
     <div>
       <h1>{user.name}</h1>
       <p>{user.email}</p>
+      <Link href={`/users/${user.id}`}>
+        go to page
+      </Link>
     </div>
   );
 };
