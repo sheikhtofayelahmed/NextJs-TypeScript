@@ -1,18 +1,19 @@
 import React from "react";
+import User from "../components/user";
 interface Result {
-  result: object[],
- 
+  result: object[];
 }
+
 const Users = ({ result }: Result) => {
-  return <div>
-    {
-        result.map((data:any)=>      
-         <>
-          <h1>{data.name}</h1>
-         </>
-        )
-    }
-  </div>;
+  return (
+    <div>
+      {result.map((data: any) => (
+        <>
+          <User user={data}></User>
+        </>
+      ))}
+    </div>
+  );
 };
 
 export default Users;
