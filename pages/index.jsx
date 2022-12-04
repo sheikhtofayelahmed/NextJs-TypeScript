@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useSession, signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -19,8 +20,8 @@ export default function Home() {
 
       <div>
         <h1>home page</h1>
-        <button onClick={navigate}>navigate button </button>
-        {["1", "2", "3"].map((img) => (
+        {/* <button onClick={navigate}>navigate button </button> */}
+        {/* {["1", "2", "3"].map((img) => (
           <Image
             key={img}
             src={`/${img}.jpg`}
@@ -28,7 +29,26 @@ export default function Home() {
             width="300"
             height="400"
           />
-        ))}
+        ))} */}
+        <Link
+          href="/api/auth/signin"
+          onClick={(e) => {
+            e.preventDefault();
+            signIn();
+          }}
+        >
+          signin
+        </Link>
+        <hr />
+        <Link
+          href="/api/auth/singout"
+          onClick={(e) => {
+            e.preventDefault();
+            signOut();
+          }}
+        >
+          out
+        </Link>
       </div>
     </div>
   );
