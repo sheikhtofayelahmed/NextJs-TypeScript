@@ -10,6 +10,11 @@ export default function Home() {
   const navigate = () => {
     router.push("/product");
   };
+  const { data: session, status } = useSession()
+  // if (data) {
+    console.log(status,session);
+  // }
+  const loading = status === "loading"
   return (
     <div>
       <Head>
@@ -30,25 +35,31 @@ export default function Home() {
             height="400"
           />
         ))} */}
-        <Link
-          href="/api/auth/signin"
-          onClick={(e) => {
-            e.preventDefault();
-            signIn();
-          }}
-        >
-          signin
-        </Link>
+
+        {!session && !loading && (
+          <Link
+            href="/api/auth/signin"
+            onClick={(e) => {
+              e.preventDefault();
+              signIn();
+            }}
+          >
+            signin
+          </Link>
+        )}
+
         <hr />
-        <Link
-          href="/api/auth/singout"
-          onClick={(e) => {
-            e.preventDefault();
-            signOut();
-          }}
-        >
-          out
-        </Link>
+        {session && (
+          <Link
+            href="/api/auth/singout"
+            onClick={(e) => {
+              e.preventDefault();
+              signOut();
+            }}
+          >
+            out
+          </Link>
+        )}
       </div>
     </div>
   );
